@@ -1,0 +1,16 @@
+.DS_Store
+
+powerx
+powerxctl
+powerx.exe
+powerxctl.exe
+
+data
+logs/
+
+etc/powerx.yaml
+
+dashboard/dist/
+dashboard/ssl/
+
+docker-compose.yaml
