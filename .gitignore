@@ -11,6 +11,6 @@ logs/
 etc/powerx.yaml
 
 dashboard/dist/
-dashboard/ssl/
+dashboard/dashboard/ssl/
 
 docker-compose.yaml
