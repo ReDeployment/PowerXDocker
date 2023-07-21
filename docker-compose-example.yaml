@@ -6,7 +6,7 @@ services:
     container_name: postgres-powerx
     environment:
       POSTGRES_USER: "powerx"
-      POSTGRES_PASSWORD: "powerxpw"
+      POSTGRES_PASSWORD: "powerxpwd"
       POSTGRES_DB: powerx
     volumes:
       - ./data/postgres:/var/lib/postgresql/data
