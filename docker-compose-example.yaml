@@ -42,7 +42,9 @@ services:
       - ./data/minio:/mnt/data
       - ./etc/minio.env:/etc/config.env
     ports:
+      # api port
       - "9001:9001"
+      # console port
       - "9090:9090"
     networks:
       - powerx-network
