@@ -55,7 +55,7 @@ services:
       dockerfile: docker/Dockerfile
     container_name: server-powerx
     volumes:
-      - ../PowerX/resource/:/app/resource/
+      - ./resource/:/app/resource/
       - ./etc/powerx.yaml:/app/etc/powerx.yaml
       - ./logs/powerx/:/app/logs/
     ports:
