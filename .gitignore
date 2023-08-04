@@ -1,5 +1,7 @@
 .DS_Store
 
+.idea/
+
 powerx
 powerxctl
 powerx.exe
@@ -14,3 +16,6 @@ dashboard/dist/
 dashboard/nginx/ssl/
 
 docker-compose.yaml
+
+nohup.out
+resource/
