@@ -11,6 +11,16 @@ Cors:
 #    - localhost
 #    - api.powerx.cn
 
+
+Log:
+  Path: logs
+  Split:
+    - error
+  Level: info
+  KeepDays: 30
+  Console: true
+  Stat: false
+
 Root:
   Account: root             # 管理员账号
   Password: root            # 管理员密码
@@ -89,6 +99,9 @@ WeWork:
   # 上下游
   #  Token: tEBuofHfxxxxxxxxxxxxBPTq9K                      # 企业微信应用的Token，用于处理接收到的消息
   #  EncodingAESKey: Gv3T4dP5QBDxxxxxxxxxxxxxxxxxxxxxxxc2vwlmUhY  # 企业微信应用的 EncodingAESKey，用于加密/解密接收和发送的消息
+  OAuth:
+    Callback: "https://*/v1/message/callback"
+    Scopes: []
 
   HttpDebug: true            # 是否启用HTTP调试模式
   Debug: false              # 是否启用微信hint的调试模式
