@@ -1,5 +1,5 @@
 # 第一阶段
-FROM golang:1.20-alpine AS builder
+FROM golang:1.21-alpine AS builder
 
 # 配置go proxy为中国国内proxy
 ENV GOPROXY=https://goproxy.cn,direct
