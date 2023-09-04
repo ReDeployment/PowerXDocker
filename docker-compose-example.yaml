@@ -74,20 +74,39 @@ services:
       retries: 5
 
 
-  web:
+  dashboard:
     build:
       context: ./
       dockerfile: dashboard/docker/Dockerfile
-    container_name: web-powerx
+    container_name: dashboard-powerx
     volumes:
       - ./logs/nginx/server:/var/log/nginx/server
-      - ./logs/nginx/web:/var/log/nginx/web
+      - ./logs/nginx/dashboard:/var/log/nginx/dashboard
       - ./dashboard/nginx/servers:/etc/nginx/sites-enabled/
       # - ./dashboard/nginx/servers_ssl:/etc/nginx/sites-enabled/
       # - ./dashboard/nginx/ssl:/etc/ssl
     ports:
+      - "8080:80"
+    networks:
+      - powerx-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+      server:
+        condition: service_healthy
+  web:
+    build:
+      context: ./
+      dockerfile: web/docker/Dockerfile
+    container_name: web-powerx
+    volumes:
+      - ./logs/nginx/server:/var/log/nginx/server
+      - ./logs/nginx/web:/var/log/nginx/web
+      - ./web/nginx/servers:/etc/nginx/sites-enabled/
+      # - ./web/nginx/servers_ssl:/etc/nginx/sites-enabled/
+      # - ./web/nginx/ssl:/etc/ssl
+    ports:
       - "80:80"
-      - "443:443"
     networks:
       - powerx-network
     depends_on:
