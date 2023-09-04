@@ -10,11 +10,18 @@ powerxctl.exe
 data
 logs/
 
+# config file
 etc/powerx.yaml
 
+# dashboard
 dashboard/dist/
 dashboard/nginx/ssl/
 
+# web
+web/dist/
+web/nginx/ssl/
+
+# Docker Compose
 docker-compose.yaml
 
 nohup.out

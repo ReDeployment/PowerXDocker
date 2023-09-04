@@ -4,8 +4,8 @@ FROM node:20 AS builder
 
 # 拷贝项目文件到容器中
 WORKDIR /app
-# COPY ./dashboard/dist /app/dist
-COPY ./dashboard /app/
+# COPY ./web/dist /app/dist
+COPY ./web /app/
 
 # 安装依赖
 # RUN #yarn install
