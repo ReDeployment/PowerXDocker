@@ -77,7 +77,7 @@ services:
   dashboard:
     build:
       context: ./
-      dockerfile: dashboard/docker/Dockerfile
+      dockerfile: dashboard/Dockerfile
     container_name: dashboard-powerx
     volumes:
       - ./logs/nginx/server:/var/log/nginx/server
@@ -97,7 +97,7 @@ services:
   web:
     build:
       context: ./
-      dockerfile: web/docker/Dockerfile
+      dockerfile: web/Dockerfile
     container_name: web-powerx
     volumes:
       - ./logs/nginx/server:/var/log/nginx/server

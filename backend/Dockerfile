@@ -6,9 +6,10 @@ ENV GOPROXY=https://goproxy.cn,direct
 
 # 拷贝当前目录到docker内
 WORKDIR /app
-RUN ls -l 
-COPY ./ /app/
-COPY ./etc/ /app/etc/
+
+# RUN ls -l 
+COPY ./backend /app/
+COPY ./backend/etc/ /app/etc/
 
 
 

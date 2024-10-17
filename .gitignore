@@ -11,7 +11,7 @@ data
 logs/
 
 # config file
-etc/powerx.yaml
+backend/etc/powerx.yaml
 
 # dashboard
 dashboard/dist/
