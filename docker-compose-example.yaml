@@ -41,7 +41,7 @@ services:
       MINIO_ROOT_PASSWORD: "${MINIO_ROOT_PASSWORD}"
     volumes:
       - ./data/minio:/mnt/data
-      - ./etc/minio.env:/etc/config.env
+      # - ./etc/minio.env:/etc/config.env
     ports:
       # api port
       - "${MINIO_API_PORT}:9001"
