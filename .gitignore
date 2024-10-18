@@ -18,10 +18,15 @@ backend/etc/powerx.yaml
 # dashboard
 dashboard/dist/
 dashboard/nginx/ssl/
+dashboard/nginx/server.conf
+dashboard/nginx/web.conf
 
 # web
 web/dist/
 web/nginx/ssl/
+web/nginx/server.conf
+web/nginx/web.conf
+
 
 # Docker Compose
 docker-compose.yaml
