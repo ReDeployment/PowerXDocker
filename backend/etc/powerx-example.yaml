@@ -1,3 +1,4 @@
+Version: 0.0.1 
 Server:
   Name: PowerX后台系统        # 服务器名称
   Host: 0.0.0.0             # 服务器地址
@@ -41,13 +42,19 @@ PowerXDatabase:
 
   # 数据库连接信息
   DSN: host=postgres user=powerx password=powerxpwd dbname=powerx port=5432 sslmode=disable TimeZone=UTC
+
+  # Schema
+  Schema: public
+
   # 数据库是否初始化定制的种子数据
   SeedCommerceData: false
   SeedDepartment: false
 
 RedisBase:
   Host: redis:6379
+  Username:
   Password:
+  DB: 0
 
 WechatOA:
   AppId: wx93607xxxxxxxxxx  # 微信公众号AppID
