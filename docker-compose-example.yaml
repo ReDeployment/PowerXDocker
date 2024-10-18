@@ -82,7 +82,7 @@ services:
     container_name: dashboard-powerx
     volumes:
       - ./logs/nginx/server:/var/log/nginx/server
-      - ./logs/nginx/dashboard:/var/log/nginx/dashboard
+      - ./logs/nginx/dashboard:/var/log/nginx/web
       - ./dashboard/nginx/servers:/etc/nginx/sites-enabled/
       # - ./dashboard/nginx/servers_ssl:/etc/nginx/sites-enabled/
       # - ./dashboard/nginx/ssl:/etc/ssl
