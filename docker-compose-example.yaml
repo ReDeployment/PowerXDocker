@@ -53,7 +53,7 @@ services:
   server:
     build:
       context: ./
-      dockerfile: docker/Dockerfile
+      dockerfile: backend/Dockerfile
     container_name: server-powerx
     volumes:
       - ./resource/:/app/resource/
