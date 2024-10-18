@@ -1,8 +1,7 @@
-version: '3.8'
 
 services:
   postgres:
-    image: postgres:latest
+    image: postgres:15
     container_name: postgres-powerx
     environment:
       POSTGRES_USER: "powerx"
@@ -11,7 +10,7 @@ services:
     volumes:
       - ./data/postgres:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
+      - "${POESGRES_PORT}:5432"
     networks:
       - powerx-network
     healthcheck:
@@ -23,7 +22,7 @@ services:
     image: redis:latest
     container_name: redis-powerx
     ports:
-      - "6379:6379"
+      - "${REDIS_PORT}:6379"
     networks:
       - powerx-network
     healthcheck:
@@ -38,14 +37,16 @@ services:
     command: server --address :9001 --console-address ":9090" /mnt/data
     environment:
       MINIO_CONFIG_ENV_FILE: /etc/config.env
+      MINIO_ROOT_USER: "${MINIO_ROOT_USER}"
+      MINIO_ROOT_PASSWORD: "${MINIO_ROOT_PASSWORD}"
     volumes:
       - ./data/minio:/mnt/data
       - ./etc/minio.env:/etc/config.env
     ports:
       # api port
-      - "9001:9001"
+      - "${MINIO_API_PORT}:9001"
       # console port
-      - "9090:9090"
+      - "${MINIO_CONSOLE_PORT}:9090"
     networks:
       - powerx-network
 
@@ -56,10 +57,10 @@ services:
     container_name: server-powerx
     volumes:
       - ./resource/:/app/resource/
-      - ./etc/powerx.yaml:/app/etc/powerx.yaml
+      # - ./etc/powerx.yaml:/app/etc/powerx.yaml
       - ./logs/powerx/:/app/logs/
     ports:
-      - "8888:8888"
+      - "${BACKEND_PORT}:8888"
     networks:
       - powerx-network
     depends_on:
@@ -86,7 +87,7 @@ services:
       # - ./dashboard/nginx/servers_ssl:/etc/nginx/sites-enabled/
       # - ./dashboard/nginx/ssl:/etc/ssl
     ports:
-      - "8080:80"
+      - "${DASHBOARD_PORT}:80"
     networks:
       - powerx-network
     depends_on:
@@ -106,7 +107,7 @@ services:
       # - ./web/nginx/servers_ssl:/etc/nginx/sites-enabled/
       # - ./web/nginx/ssl:/etc/ssl
     ports:
-      - "80:80"
+      - "${WEB_PORT}:80"
     networks:
       - powerx-network
     depends_on:
